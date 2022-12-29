@@ -13,39 +13,59 @@ text.place(x=50, y=20, height=30)
 
 def getvalue(item):
     global value
+    value = str(value)
     value = value + str(item)
+
     expression.set(value)
 
 
 def cleartext(item):
     global value
+    global storedvalue
+    global result
     value = ""
+    storedvalue = ""
+    result = ""
     expression.set(value)
 
 
 def getoperation(item):
     global value
     global storedvalue
+    global operationvariable
     storedvalue = int(value)
     value = ""
     expression.set(value)
+    operationvariable = item
 
 
 def equals(item):
     global result
     global storedvalue
     global value
-    result = storedvalue + int(value)
-    expression.set(result)
-
-
-
-
+    global operationvariable
+    if operationvariable == "+":
+        result = storedvalue + int(value)
+        expression.set(result)
+        value = result
+    elif operationvariable == "-":
+        result = storedvalue - int(value)
+        expression.set(result)
+        value = result
+    elif operationvariable == "*":
+        result = storedvalue * int(value)
+        expression.set(result)
+        value = result
+    else:
+        result = storedvalue / int(value)
+        expression.set(result)
+        value = result
 
 
 value = ""
 storedvalue = ""
 result = ""
+operationvariable = ""
 # start of first row buttons
 
 button1 = Button(text="7", bg="#505050", fg="white", width="5", height="1", font=('SansSerif Bold', 13),
