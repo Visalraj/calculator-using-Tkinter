@@ -1,2 +1,2 @@
 # calculator-using-Tkinter
-This is a calculator project developed using Tkinter,second draft includes some more operations,further will develop soon
+This is a  calculator to perform basic arithmetic operations,it is developed using Tkinter.
